@@ -1,10 +1,3 @@
-
-
-
-
-
----
-
 ## 1. Jak zainstalować integrację w Home Assistant
 
 Aby uruchomić integrację na swojej działającej instancji Home Assistant:
@@ -169,3 +162,6 @@ Pozwala sterować trybem pracy procesora PLC CPU.
    *   Jeśli sensory odpytują np. `D100`, `D101`, `D102`, `D105`, integracja wykona **jeden seryjny odczyt** o długości 6 rejestrów (od D100 do D105) zamiast 4 osobnych połączeń sieciowych.
    *   Ogranicza to ruch sieciowy o ponad **75%** i znacząco odciąża CPU sterownika PLC.
 3. **Obsługa Błędów:** W przypadku błędu socketu lub utraty zasilania PLC, hub automatycznie oznacza połączenie jako przerwane, a coordinator podejmie próbę ponownego połączenia przy następnym cyklu odpytywania, chroniąc Home Assistant przed zawieszeniem.
+
+Jako źródło komunikacji posłużyła integracja: 
+https://github.com/senrust/pymcprotocol

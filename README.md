@@ -1,3 +1,4 @@
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/gwozdziu123/Homeassistant-Mitsubishi-MC-Protocol)
 ## 1. How to Install the Integration in Home Assistant
 
 To run the integration on your existing Home Assistant instance:

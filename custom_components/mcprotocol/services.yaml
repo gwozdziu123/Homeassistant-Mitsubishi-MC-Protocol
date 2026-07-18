@@ -1,0 +1,94 @@
+write_register:
+  name: Write Register
+  description: Write raw numerical, float, or string values to a word register or block of registers.
+  fields:
+    plc_name:
+      name: PLC Name
+      description: Name of the PLC connection (optional if only one PLC is configured).
+      required: false
+      selector:
+        text:
+    address:
+      name: Address
+      description: Starting PLC address (e.g. D100, W20).
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: Value to write (integer, float, string, or a list of integers like [10, 20]).
+      required: true
+      selector:
+        object:
+    data_type:
+      name: Data Type
+      description: Data type used to encode the value.
+      required: false
+      default: int16
+      selector:
+        select:
+          options:
+            - int16
+            - uint16
+            - int32
+            - uint32
+            - float32
+            - string
+    swap_words:
+      name: Swap Words
+      description: Swap word order for 32-bit types.
+      required: false
+      default: false
+      selector:
+        boolean:
+    swap_bytes:
+      name: Swap Bytes
+      description: Swap byte order in each 16-bit word.
+      required: false
+      default: false
+      selector:
+        boolean:
+
+write_bit:
+  name: Write Bit
+  description: Write a binary value (ON/OFF) to a PLC bit or a bit within a word register.
+  fields:
+    plc_name:
+      name: PLC Name
+      description: Name of the PLC connection (optional if only one PLC is configured).
+      required: false
+      selector:
+        text:
+    address:
+      name: Address
+      description: PLC bit address (e.g. M100, Y10, or D100.5).
+      required: true
+      selector:
+        text:
+    value:
+      name: Value
+      description: State to write (True for ON / False for OFF).
+      required: true
+      selector:
+        boolean:
+
+remote_command:
+  name: Remote Command
+  description: Send remote control commands (RUN, STOP, PAUSE) directly to the PLC CPU.
+  fields:
+    plc_name:
+      name: PLC Name
+      description: Name of the PLC connection (optional if only one PLC is configured).
+      required: false
+      selector:
+        text:
+    command:
+      name: Command
+      description: The control command to send.
+      required: true
+      selector:
+        select:
+          options:
+            - run
+            - stop
+            - pause
